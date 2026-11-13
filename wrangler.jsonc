@@ -8,6 +8,10 @@
     "nodejs_compat"
   ],
   "workers_dev": true,
+  "routes": [
+    { "pattern": "openassay.ca", "custom_domain": true },
+    { "pattern": "www.openassay.ca", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true
   },

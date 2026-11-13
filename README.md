@@ -8,6 +8,8 @@ Source repository: https://github.com/OpenAssay/Website
 
 Primary domain: https://openassay.ca. The site runs on the `openassay-web` Cloudflare Worker, with registrations stored in the account's `openassay-waitlist` D1 database. Cloudflare Web Analytics is configured for the existing domain.
 
+Hosting and DNS are managed directly in the owner's Cloudflare account. Deploy this repository with Wrangler; do not register or redeploy it through GPT Sites.
+
 The source `wrangler.jsonc` defines the Worker and its `DB` binding. Build output and the generated deployment configuration are written to `dist/`.
 
 ```sh
