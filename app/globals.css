@@ -99,7 +99,7 @@ h1 { font-size: clamp(44px, 5.5vw, 64px); font-weight: 700; letter-spacing: -2px
 .comparison-table th,.comparison-table td { padding: 13px 16px; border-bottom: 1px solid var(--border); text-align: left; }
 .comparison-table thead th { color: var(--text); background: var(--surface); font-size: 13px; font-weight: 600; border-top: 1px solid var(--border); border-bottom: 2px solid #4a4a4a; }
 .comparison-table tbody th { font-weight: 400; }
-.comparison-table th:last-child,.comparison-table td:last-child { text-align: right; }
+.comparison-table th:not(:first-child),.comparison-table td { text-align: right; }
 .comparison-table .openassay-result { background: var(--surface); }
 .comparison-table .openassay-result th,.comparison-table .openassay-result td { font-weight: 600; }
 .comparison-table .openassay-result th { border-left: 3px solid var(--accent); }

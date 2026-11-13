@@ -20,7 +20,7 @@ The deployment account must have access to the configured Cloudflare account and
 
 ## Reported comparisons
 
-The project owner supplied the token and compute figures displayed on the site: half the tokens of direct OpenAI prompting, and 1,300 GPU hours per paper for OpenAssay versus 2,600 for OpenAI Sol 6.1 and 2,400 for Opus 5.5. The owner confirmed that the compute comparisons use the same H200 SXM hardware. The figures were supplied by the project owner; no independent benchmark reproduction was performed while building the site. The 50.0% and 45.8% compute reductions are calculated from those reported totals.
+The project owner supplied the token and compute figures displayed on the site: half the tokens of direct OpenAI prompting, and 1,300 GPU hours per paper for OpenAssay versus 2,600 for OpenAI Sol 6.1 and 2,700 for Anthropic Opus 5.5. The owner confirmed that the compute comparisons use the same H200 SXM hardware. The figures were supplied by the project owner; no independent benchmark reproduction was performed while building the site. The 50.0% and 51.9% compute reductions are calculated from those reported totals. The OpenAssay speedup column divides each system’s GPU-hour cost by 1,300, giving 1×, 2×, and 2.08×, respectively.
 
 ## Development
 

@@ -67,16 +67,16 @@ export default function Home() {
                 <div className="comparison-table-wrap">
                   <table className="comparison-table" aria-describedby="comparison-note">
                     <caption>Comparison on H200 SXM hardware</caption>
-                    <thead><tr><th scope="col">System</th><th scope="col">GPU hours per paper ↓</th></tr></thead>
+                    <thead><tr><th scope="col">System</th><th scope="col">GPU hours per paper ↓</th><th scope="col">OpenAssay speedup ↑</th></tr></thead>
                     <tbody>
-                      <tr className="openassay-result"><th scope="row">OpenAssay</th><td><strong>1,300</strong></td></tr>
-                      <tr><th scope="row">OpenAI Sol 6.1</th><td>2,600</td></tr>
-                      <tr><th scope="row">Opus 5.5</th><td>2,400</td></tr>
+                      <tr className="openassay-result"><th scope="row">OpenAssay</th><td><strong>1,300</strong></td><td><strong>1×</strong></td></tr>
+                      <tr><th scope="row">OpenAI Sol 6.1</th><td>2,600</td><td>2×</td></tr>
+                      <tr><th scope="row">Anthropic Opus 5.5</th><td>2,700</td><td>2.08×</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p className="measurement-note" id="comparison-note">GPU-hour measurements use the same H200 SXM hardware.</p>
-                <p className="result-callout"><strong>50% fewer GPU hours</strong> than Sol 6.1; <strong>45.8% fewer</strong> than Opus 5.5.</p>
+                <p className="measurement-note" id="comparison-note">GPU-hour measurements use the same H200 SXM hardware. OpenAssay speedup is each system’s GPU-hour cost divided by 1,300.</p>
+                <p className="result-callout"><strong>50% fewer GPU hours</strong> than Sol 6.1; <strong>51.9% fewer</strong> than Anthropic Opus 5.5.</p>
               </div>
             </div>
           </section>
