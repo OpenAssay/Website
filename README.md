@@ -6,7 +6,7 @@ A coming-soon site for OpenAssay, positioned as a research engine. The three mai
 
 Source repository: https://github.com/OpenAssay/Website
 
-Primary domain: https://openassay.ca. The www.openassay.ca hostname is also registered with hosting. The site runs on Sites with a persistent D1 waitlist. Domain activation requires the Namecheap records documented in DNS_SETUP.md.
+Primary domain: https://openassay.ca. The www.openassay.ca hostname is also registered with hosting. The site runs on Sites with a persistent D1 waitlist. Domain activation requires the matching routing and verification records in Namecheap.
 
 ## Reported comparisons
 
