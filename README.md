@@ -6,7 +6,17 @@ A coming-soon site for OpenAssay, positioned as a research engine. The three mai
 
 Source repository: https://github.com/OpenAssay/Website
 
-Primary domain: https://openassay.ca. The www.openassay.ca hostname is also registered with hosting. The site runs on Sites with a persistent D1 waitlist. Domain activation requires the matching routing and verification records in Namecheap.
+Primary domain: https://openassay.ca. The site runs on the `openassay-web` Cloudflare Worker, with registrations stored in the account's `openassay-waitlist` D1 database. Cloudflare Web Analytics is configured for the existing domain.
+
+The source `wrangler.jsonc` defines the Worker and its `DB` binding. Build output and the generated deployment configuration are written to `dist/`.
+
+```sh
+npm ci
+npm run db:migrate
+npm run deploy
+```
+
+The deployment account must have access to the configured Cloudflare account and database. Custom domain routing is managed in Cloudflare; publishing the Worker alone does not change DNS.
 
 ## Reported comparisons
 
@@ -18,14 +28,12 @@ Requires Node.js 22.13+ and npm. From this directory:
 
 ```sh
 npm ci
+npm run db:migrate:local
 npm run build
-node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_new_galactus.sql
 npm run dev
 ```
 
-Apply the initial migration only once per local database. Development serves on http://localhost:5173. The production preview command is `npm start` after a build. Local D1 data lives in the ignored `.wrangler/` directory and is separate from hosted signups.
-
-This checkout also has an ignored local Node runtime under `.sites-runtime/node/` for the current computer. Add `.sites-runtime/node/bin` to `PATH` to use its `node` and `npm` commands.
+Wrangler records applied migrations, so the migration command is safe to repeat. Development serves on http://localhost:5173. The production preview command is `npm start` after a build. Local D1 data lives in the ignored `.wrangler/` directory and is separate from hosted signups.
 
 ## Content and styles
 
@@ -40,9 +48,9 @@ This checkout also has an ignored local Node runtime under `.sites-runtime/node/
 
 `POST /api/waitlist` accepts JSON `{name, email, website?}`. It validates the input, normalizes email addresses, and persists to the D1 `waitlist_signups` table. Duplicate email addresses return the same confirmation without creating a second row. The `website` field is a honeypot.
 
-There is no public signup listing endpoint. Signups can be inspected through the site's connected database tools. The site stores signups; sending launch emails is a separate step and no confirmation emails are sent automatically.
+There is no public signup listing endpoint. Signups can be inspected in the Cloudflare D1 dashboard or through authenticated Wrangler queries. The site stores signups; sending launch emails is a separate step and no confirmation emails are sent automatically.
 
-The schema is in `db/schema.ts`; migration SQL and metadata are in `drizzle/`. Sites applies the schema migration to the hosted database during publication. `.openai/hosting.json` retains the Site identity and D1 binding.
+The schema is in `db/schema.ts`; migration SQL and metadata are in `drizzle/`. Run `npm run db:migrate` before deploying a schema change. Database contents are independent of Worker deployments and must be backed up and migrated separately when changing hosting accounts.
 
 ## Validation
 

@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "openassay-web",
+  "account_id": "0e8a1514d59b6681ec8bd8a5e64a9a4c",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "openassay-waitlist",
+      "database_id": "c6154164-13a4-4c4b-9727-c6f6e590e3c4",
+      "migrations_dir": "./drizzle"
+    }
+  ]
+}
