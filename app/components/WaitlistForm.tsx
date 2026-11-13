@@ -23,11 +23,11 @@ export function WaitlistForm() {
       });
       const payload: unknown = await response.json();
       const result = payload && typeof payload === "object" ? payload as { ok?: boolean; error?: unknown } : {};
-      if (!response.ok || !result.ok) throw new Error(typeof result.error === "string" ? result.error : "We couldn’t save your spot. Please try again.");
+      if (!response.ok || !result.ok) throw new Error(typeof result.error === "string" ? result.error : "Registration could not be saved. Please try again.");
       setState("success");
     } catch (error) {
       setState("error");
-      setMessage(error instanceof Error && error.name !== "AbortError" ? error.message : "That took a little too long. Please try again.");
+      setMessage(error instanceof Error && error.name !== "AbortError" ? error.message : "The request timed out. Please try again.");
     } finally {
       window.clearTimeout(timeout);
     }
@@ -38,18 +38,18 @@ export function WaitlistForm() {
       {state === "success" ? (
         <div className="form-success" role="status">
           <div className="success-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></div>
-          <h3>You’re on the list.</h3>
-          <p>Thanks for being curious. We’ll be in touch with OpenAssay launch news and updates on the reproduction collection.</p>
+          <h3>Registration saved.</h3>
+          <p>Your name and email have been added to the OpenAssay waitlist for release updates.</p>
         </div>
       ) : (
         <form onSubmit={submit} aria-labelledby="form-heading" aria-busy={state === "submitting"}>
-          <h3 id="form-heading" className="form-heading">A place on the list. A first look at what’s next.</h3>
-          <div className="form-group"><label className="form-label" htmlFor="waitlist-name">Your name</label><input className="form-input" id="waitlist-name" name="name" autoComplete="name" placeholder="Ada Lovelace" required maxLength={100} disabled={state === "submitting"} /></div>
-          <div className="form-group"><label className="form-label" htmlFor="waitlist-email">Email address</label><input className="form-input" id="waitlist-email" name="email" type="email" autoComplete="email" placeholder="ada@yourlab.org" required maxLength={254} disabled={state === "submitting"} aria-describedby="waitlist-note" /></div>
+          <h3 id="form-heading" className="form-heading">Join the waitlist</h3>
+          <div className="form-group"><label className="form-label" htmlFor="waitlist-name">Name</label><input className="form-input" id="waitlist-name" name="name" autoComplete="name" placeholder="Full name" required maxLength={100} disabled={state === "submitting"} /></div>
+          <div className="form-group"><label className="form-label" htmlFor="waitlist-email">Email address</label><input className="form-input" id="waitlist-email" name="email" type="email" autoComplete="email" placeholder="name@institution.edu" required maxLength={254} disabled={state === "submitting"} aria-describedby="waitlist-note" /></div>
           <div className="honeypot" aria-hidden="true"><label htmlFor="waitlist-website">Leave this field empty</label><input id="waitlist-website" name="website" tabIndex={-1} autoComplete="off" /></div>
-          <button className="button button-orange" type="submit" disabled={state === "submitting"}>{state === "submitting" ? "Saving your spot…" : "Join the waitlist"}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+          <button className="button button-orange" type="submit" disabled={state === "submitting"}>{state === "submitting" ? "Submitting…" : "Join the waitlist"}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
           {state === "error" && <p className="form-error" role="alert">{message}</p>}
-          <p id="waitlist-note" className="form-note">By joining, you agree to receive OpenAssay launch updates. Your name and email are saved for this waitlist.</p>
+          <p id="waitlist-note" className="form-note">By registering, you agree to receive OpenAssay release updates. Your name and email are stored for this waitlist.</p>
         </form>
       )}
     </div>

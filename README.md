@@ -1,6 +1,16 @@
 # OpenAssay launch site
 
-A coming-soon site for OpenAssay, positioned as a research engine. Includes a teaser for the forthcoming collection of 100+ NeurIPS papers reproduced with code and a persistent name/email waitlist.
+A coming-soon site for OpenAssay, positioned as a research engine. The three main contributions are token and compute efficiency, traceable research, and 20+ paper reproductions from 2026 A* conferences. All code and papers will be released. Includes a persistent name/email waitlist.
+
+## Deployment
+
+Source repository: https://github.com/OpenAssay/Website
+
+Primary domain: https://openassay.ca. The www.openassay.ca hostname is also registered with hosting. The site runs on Sites with a persistent D1 waitlist. Domain activation requires the Namecheap records documented in DNS_SETUP.md.
+
+## Reported comparisons
+
+The project owner supplied the token and compute figures displayed on the site: half the tokens of direct OpenAI prompting, and 1,300 GPU hours per paper for OpenAssay versus 2,600 for OpenAI Sol 6.1 and 2,400 for Opus 5.5. The owner confirmed that the compute comparisons use the same H200 SXM hardware. The figures were supplied by the project owner; no independent benchmark reproduction was performed while building the site. The 50.0% and 45.8% compute reductions are calculated from those reported totals.
 
 ## Development
 
@@ -20,8 +30,8 @@ This checkout also has an ignored local Node runtime under `.sites-runtime/node/
 ## Content and styles
 
 - `app/page.tsx`: public launch copy and page sections.
-- `app/globals.css`: responsive typography, layout, colors, and motion preferences.
-- `app/components/ResearchField.tsx`: abstract particle artwork, with a pause control and reduced-motion support.
+- `app/globals.css`: responsive academic page layout and neutral black/grey palette.
+- `app/components/ResearchField.tsx`: three-part logo assembly, collision burst, and continuous particle orbits.
 - `app/components/WaitlistForm.tsx`: waitlist form, validation, error and confirmation states.
 - `app/layout.tsx`: page and social metadata.
 - `public/assets/`: locally served fonts and their licenses.

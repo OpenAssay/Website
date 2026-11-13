@@ -24,7 +24,7 @@ function respond(body: object, status = 200) {
 }
 
 function success() {
-  return respond({ ok: true, message: "You’re on the list." });
+  return respond({ ok: true, message: "Registration saved." });
 }
 
 async function readPayload(request: Request): Promise<unknown> {
@@ -127,7 +127,7 @@ export async function POST(request: Request) {
     } catch {
       console.error("Waitlist storage is temporarily unavailable.");
       return respond(
-        { ok: false, error: "We couldn’t save your place just yet. Please try again." },
+        { ok: false, error: "Registration could not be saved. Please try again." },
         503,
       );
     }
