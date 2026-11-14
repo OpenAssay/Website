@@ -65,7 +65,7 @@ export default function Home() {
               <div className="performance-summary" aria-labelledby="efficiency-title">
                 <h3 id="efficiency-title">Computational Costs</h3>
                 <div className="comparison-table-wrap">
-                  <table className="comparison-table" aria-describedby="comparison-note">
+                  <table className="comparison-table">
                     <caption>Comparison on NVIDIA H100 SXM GPUs</caption>
                     <thead><tr><th scope="col">System</th><th scope="col">GPU hours per paper ↓</th><th scope="col">OpenAssay speedup ↑</th></tr></thead>
                     <tbody>
@@ -75,8 +75,6 @@ export default function Home() {
                     </tbody>
                   </table>
                 </div>
-                <p className="measurement-note" id="comparison-note">GPU-hour measurements use the same NVIDIA H100 SXM GPUs. OpenAssay speedup is each system’s GPU-hour cost divided by 1,300.</p>
-                <p className="result-callout"><strong>45.8% fewer GPU hours</strong> than Sol 6.1; <strong>51.9% fewer</strong> than Anthropic Opus 5.5.</p>
               </div>
             </div>
           </section>

@@ -103,9 +103,6 @@ h1 { font-size: clamp(44px, 5.5vw, 64px); font-weight: 700; letter-spacing: -2px
 .comparison-table .openassay-result { background: var(--surface); }
 .comparison-table .openassay-result th,.comparison-table .openassay-result td { font-weight: 600; }
 .comparison-table .openassay-result th { border-left: 3px solid var(--accent); }
-.measurement-note { color: var(--muted); font-size: 12px; line-height: 1.75; margin-top: 13px; }
-.result-callout { margin-top: 20px; padding-top: 17px; border-top: 1px solid var(--border); font-size: 14px; line-height: 1.85; }
-.result-callout strong { color: var(--text); font-weight: 600; }
 .waitlist-section { border-top: 1px solid var(--border); padding-bottom: 62px; }
 .waitlist-section>.section-description { text-align: center; max-width: 630px; }
 
@@ -167,7 +164,6 @@ h1 { font-size: clamp(44px, 5.5vw, 64px); font-weight: 700; letter-spacing: -2px
   .comparison-table { font-size: 14px; }
   .comparison-table th,.comparison-table td { padding: 12px 10px; }
   .comparison-table thead th { font-size: 12px; }
-  .result-callout { font-size: 13px; }
   .waitlist-form { margin-top: 25px; }
   .form-heading { font-size: 16px; }
   .form-input { font-size: 16px; }
